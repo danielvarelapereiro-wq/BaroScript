@@ -1405,7 +1405,6 @@ INSERT INTO tabla_III_excep (profundidad, tiempo_fondo, t_primera_parada, mezcla
 --  TABLA IV — Profundidad teórica para inmersiones en altitud y profundidad real de
 --  las paradas de descompresión para inmersiones en altitud
 -- ============================================================
-
 -- ============================================================
 --  TABLA IV INMERSION
 -- ============================================================
