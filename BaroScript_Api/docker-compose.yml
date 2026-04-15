@@ -6,11 +6,10 @@ services:
     container_name: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      #testdb
-      MYSQL_DATABASE: bs_db_api
-      MYSQL_USER: testuser
-      MYSQL_PASSWORD: testpass
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_USER_PASS}
     ports:
       - "3306:3306"
     volumes:
@@ -25,7 +24,7 @@ services:
     environment:
       PMA_HOST: mariadb
       PMA_USER: root
-      PMA_PASSWORD: rootpassword
+      PMA_PASSWORD: ${DB_ROOT_PASS}
     ports:
       - "8081:80"
 
@@ -35,6 +34,8 @@ services:
     depends_on:
       - mariadb
     environment:
-      DB_URL: jdbc:mariadb://mariadb:3306/alumnos
-      DB_USER: testuser
-      DB_PASS: testpass
+      DB_URL: jdbc:mariadb://mariadb:3306/${DB_NAME}
+      DB_USER: ${DB_USERNAME}
+      DB_PASS: ${DB_USER_PASS}
+      #JWT_SECRET: ${JWT_SECRET}
+      #JWT_EXPIRATION: ${JWT_EXPIRATION}
