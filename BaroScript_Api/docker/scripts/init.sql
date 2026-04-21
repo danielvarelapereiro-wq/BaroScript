@@ -71,10 +71,10 @@ CREATE TABLE IF NOT EXISTS hojas_inmersion (
 -- ============================================================
 
 CREATE TABLE IF NOT EXISTS inmersion_buceadores (
-    id           INT PRIMARY KEY AUTO_INCREMENT,
     hoja_id      INT NOT NULL,
     buceador_id  INT NOT NULL,
     es_jefe_equipo BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY (hoja_id, buceador_id),
     FOREIGN KEY (hoja_id)     REFERENCES hojas_inmersion(hoja_id) ON DELETE CASCADE,
     FOREIGN KEY (buceador_id) REFERENCES buceadores(buceador_id)
 );
