@@ -79,7 +79,6 @@ public class Usuario {
                 "usuarioId=" + usuarioId +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
-                ", passwordHash='" + passwordHash + '\'' +
                 ", rol=" + rol +
                 ", fechaRegistro=" + fechaRegistro +
                 ", activo=" + activo +

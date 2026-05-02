@@ -18,14 +18,6 @@ public interface HojaInmersionDAO extends JpaRepository<HojaInmersion, Integer> 
     // Contar hojas creadas, para aplicar límite de rol USER (1 inmer/dia)
     long countByUsuarioUsuarioIdAndFecha(Integer usuarioId, LocalDate fecha);
 
-    // ultima inmersion en las que participo un buceador
-    // para comprobar tiempo de descanso entre inmersiones
-    @Query("SELECT h FROM HojaInmersion h " +
-            "JOIN h.buceadores ib " +
-            "WHERE ib.buceador.buceadorId = :buceadorId " +
-            "ORDER BY h.fecha DESC, h.createdAt DESC")
-    List<HojaInmersion> findUltimasInmersionesDeBuceador(@Param("buceadorId") Integer buceadorId);
-
     // Hojas pendientes de sincronizar (syncedAt null)
     @Query("SELECT h FROM HojaInmersion h " +
             "WHERE h.usuario.usuarioId = :usuarioId " +

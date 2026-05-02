@@ -3,11 +3,12 @@ package com.BaroScript.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 //Clave primaria compuesta para la tabla InmersionBuceador que es tabla intermedia N:M
 @Embeddable
-public class PkInmersionBuceador {
+public class PkInmersionBuceador implements Serializable {
 
     @Column(name = "hoja_id")
     private Integer hojaId;
